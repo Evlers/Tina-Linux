@@ -16,9 +16,9 @@ get_serialnumber() {
 }
 
 start_service() {
-	[ -e /bin/setusbconfig ] && {
-		/bin/setusbconfig adb
-	}
+	# [ -e /bin/setusbconfig ] && {
+	# 	/bin/setusbconfig adb
+	# }
 	[ -d /sys/kernel/config/usb_gadget ] || {
 		mount -t configfs none /sys/kernel/config
 		mkdir /sys/kernel/config/usb_gadget/g1
