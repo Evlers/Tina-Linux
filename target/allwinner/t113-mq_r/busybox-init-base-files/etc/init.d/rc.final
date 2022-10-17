@@ -37,3 +37,5 @@ if [ -z "$(grep '\<vfat\>' /proc/mounts)" ]; then
     ! /bin/mount -t vfat /dev/mmcblk0 /mnt/extsd 2>/dev/null &&
     /bin/mount -t vfat /dev/mmcblk0p1 /mnt/extsd
 fi
+
+grep debugfs /proc/filesystems && mount -t debugfs none /sys/kernel/debug

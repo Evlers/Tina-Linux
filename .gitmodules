@@ -1,6 +1,6 @@
 [submodule "package"]
 	path = package
-	url = https://github.com/mangopi-sbc/tina-package
+	url = https://github.com/Evlers/tina-package
 [submodule "lichee/brandy-2.0/spl-pub"]
 	path = lichee/brandy-2.0/spl-pub
 	url = https://github.com/mangopi-sbc/tina-spl-pub
