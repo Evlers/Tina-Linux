@@ -344,18 +344,18 @@
 	lcd_y               = <480>;
 	lcd_width           = <150>;
 	lcd_height          = <94>;
-	lcd_dclk_freq       = <48>;
+	lcd_dclk_freq       = <24>;
 
 	lcd_pwm_used        = <1>;
 	lcd_pwm_ch          = <7>;
 	lcd_pwm_freq        = <10000>;
 	lcd_pwm_pol         = <1>;
 
-	lcd_hbp             = <55>;
-	lcd_ht              = <1240>;
-	lcd_hspw            = <20>;
-	lcd_vbp             = <35>;
-	lcd_vt              = <650>;
+	lcd_hbp             = <8>;
+	lcd_ht              = <816>;
+	lcd_hspw            = <0>;
+	lcd_vbp             = <8>;
+	lcd_vt              = <496>;
 	lcd_vspw            = <10>;
 
 	lcd_lvds_if         = <0>;
@@ -370,6 +370,7 @@
 	deu_mode            = <0>;
 	lcdgamma4iep        = <22>;
 	smart_color         = <90>;
+
 	pinctrl-0 = <&rgb18_pins_a>;
 	pinctrl-1 = <&rgb18_pins_b>;
 };

@@ -942,18 +942,18 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
 	 * interrupt-parent = <&pcf8574>;
 	 * interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
 	 */
-	pcf8574: gpio@38 {
-		compatible = "nxp,pcf8574";
-		reg = <0x38>;
-		gpio_base = <2020>;
-		gpio-controller;
-		#gpio-cells = <2>;
-		interrupt-controller;
-		#interrupt-cells = <2>;
-		interrupt-parent = <&pio>;
-		interrupts = <PB 2 IRQ_TYPE_EDGE_FALLING>;
-		status = "disabled";
-	};
+	// pcf8574: gpio@38 {
+	// 	compatible = "nxp,pcf8574";
+	// 	reg = <0x38>;
+	// 	gpio_base = <2020>;
+	// 	gpio-controller;
+	// 	#gpio-cells = <2>;
+	// 	interrupt-controller;
+	// 	#interrupt-cells = <2>;
+	// 	interrupt-parent = <&pio>;
+	// 	interrupts = <PB 2 IRQ_TYPE_EDGE_FALLING>;
+	// 	status = "disabled";
+	// };
 
 	ctp@14 {
                 compatible = "allwinner,goodix";
@@ -968,12 +968,22 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
                 ctp_revert_x_flag = <0x0>;
                 ctp_revert_y_flag = <0x0>;
                 ctp_exchange_x_y_flag = <0x0>;
-                ctp_int_port = <&pio PE 10 GPIO_ACTIVE_HIGH>;
-                ctp_wakeup = <&pio PE 11 GPIO_ACTIVE_HIGH>;
+                ctp_int_port = <&pio PB 3 GPIO_ACTIVE_HIGH>;
+                ctp_wakeup = <&pio PB 2 GPIO_ACTIVE_HIGH>;
                 /*ctp-supply = <&reg_aldo2>;*/
                 /*ctp_power_ldo = <&reg_aldo2>;*/
                 /*ctp_power_ldo_vol = <3300>;*/
 	};
+
+	// ctp@14 {
+	// 	compatible = "goodix,gt911";
+	// 	reg = <0x14>;
+	// 	interrupt-parent = <&pio>;
+	// 	interrupts = <1 3 IRQ_TYPE_EDGE_FALLING>; // PB3
+	// 	irq-gpios = <&pio 1 3 GPIO_ACTIVE_HIGH>; // PB3
+	// 	reset-gpios = <&pio 1 2 GPIO_ACTIVE_HIGH>; // PB2
+	// };
+	
 };
 
 &twi3 {
@@ -1268,18 +1278,18 @@ pull up or pull down(default 0), driver level(default 1), data>
 	lcd_y               = <480>;
 	lcd_width           = <150>;
 	lcd_height          = <94>;
-	lcd_dclk_freq       = <48>;
+	lcd_dclk_freq       = <24>;
 
 	lcd_pwm_used        = <1>;
 	lcd_pwm_ch          = <7>;
 	lcd_pwm_freq        = <500>;
 	lcd_pwm_pol         = <0>;
 
-	lcd_hbp             = <55>;
-	lcd_ht              = <1240>;
-	lcd_hspw            = <20>;
-	lcd_vbp             = <35>;
-	lcd_vt              = <650>;
+	lcd_hbp             = <8>;
+	lcd_ht              = <816>;
+	lcd_hspw            = <0>;
+	lcd_vbp             = <8>;
+	lcd_vt              = <496>;
 	lcd_vspw            = <10>;
 
 	lcd_lvds_if         = <0>;
@@ -1343,32 +1353,40 @@ pull up or pull down(default 0), driver level(default 1), data>
 	pinctrl-1 = <&lvds0_pins_b>;
 	lcd_bl_en = <&pio PD 20 GPIO_ACTIVE_HIGH>;	
 
-	lcd_driver_name     = "he0801a068";
-	lcd_backlight       = <50>;
+	lcd_driver_name     = "tft08006";
+	lcd_backlight       = <100>;
 	lcd_if              = <4>;
 
 	lcd_x               = <800>;
-	lcd_y               = <1280>;
+	lcd_y               = <480>;
 	lcd_width           = <52>;
 	lcd_height          = <52>;
-	lcd_dclk_freq       = <78>;
+	// lcd_dclk_freq       = <34>;
+	lcd_dclk_freq       = <27>;
 
 	lcd_pwm_used        = <1>;
-	lcd_pwm_ch          = <7>;
+	lcd_pwm_ch          = <2>;
 	lcd_pwm_freq        = <50000>;
 	lcd_pwm_pol         = <1>;
 	lcd_pwm_max_limit   = <255>;
 
-	lcd_hbp             = <149>;
-	lcd_ht              = <978>;
-	lcd_hspw            = <16>;
-	lcd_vbp             = <7>;
-	lcd_vt              = <1329>;
-	lcd_vspw            = <5>;
+	lcd_hbp             = <25>;
+	lcd_ht              = <871>;
+	lcd_hspw            = <14>;
+	lcd_vbp             = <40>;
+	lcd_vt              = <550>;
+	lcd_vspw            = <4>;
 
-	lcd_dsi_lane        = <4>;
+	// lcd_hbp             = <32>;
+	// lcd_ht              = <868>;
+	// lcd_hspw            = <4>;
+	// lcd_vbp             = <10>;
+	// lcd_vt              = <520>;
+	// lcd_vspw            = <4>;
+
+	lcd_dsi_lane        = <1>;
 	lcd_lvds_if         = <0>;
-	lcd_lvds_colordepth = <1>;
+	lcd_lvds_colordepth = <0>;
 	lcd_lvds_mode       = <0>;
 	lcd_frm             = <0>;
 	lcd_io_phase        = <0x0000>;
@@ -1385,7 +1403,7 @@ pull up or pull down(default 0), driver level(default 1), data>
 	pinctrl-0 = <&dsi4lane_pins_a>;
 	pinctrl-1 = <&dsi4lane_pins_b>;
 	lcd_gpio_0 = <&pio PD 20 GPIO_ACTIVE_HIGH>;	
-*/
+	*/
 };
 
 &pwm0 {
