@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "------run profile file-----"
+
 [ -f /etc/banner ] && cat /etc/banner
 [ -e /tmp/.failsafe ] && cat /etc/banner.failsafe
 fgrep -sq '/ overlay ro,' /proc/mounts && {
@@ -10,7 +10,8 @@ fgrep -sq '/ overlay ro,' /proc/mounts && {
 export PATH="%PATH%"
 export HOME=$(grep -e "^${USER:-root}:" /etc/passwd | cut -d ":" -f 6)
 export HOME=${HOME:-/root}
-export PS1='\u@\h:\w\$ '
+# export PS1='\u@\h:\w\$ '
+export PS1='\[\e[32;1m\]\u@\h:\w\$ \[\e[0m\]'
 export LD_LIBRARY_PATH=/usr/lib/eyesee-mpp:${LD_LIBRARY_PATH}
 
 export TSLIB_CALIBFILE=/etc/pointercal
@@ -21,6 +22,7 @@ export TSLIB_FBDEVICE=/dev/fb0
 export TSLIB_TSDEVICE=/dev/input/event3
 
 ulimit -c unlimited
+alias ls='ls --color'
 alias usbhost="cat /sys/devices/platform/soc@3000000/soc@3000000:usbc0@0/usb_host"
 alias usbdevice="cat /sys/devices/platform/soc@3000000/soc@3000000:usbc0@0/usb_device"
 [ -x /bin/more ] || alias more=less

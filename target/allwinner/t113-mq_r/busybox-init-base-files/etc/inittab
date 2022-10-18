@@ -28,14 +28,14 @@
 ::sysinit:/etc/init.d/rcS boot
 
 # Put a getty on the serial port
-# /dev/console::respawn:-/bin/sh
-/dev/console::askfirst:-/bin/sh
+/dev/console::respawn:-/bin/sh
+# /dev/console::askfirst:-/bin/sh
 #ttyS0::respawn:/sbin/getty -n -L ttyS0 115200 vt100 -n -l /bin/sh # GENERIC_SERIAL
 
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
 
 # Stuff to do before rebooting
-# ::shutdown:/etc/init.d/rcK
-# ::shutdown:/sbin/swapoff -a
+::shutdown:/etc/init.d/rcK
+::shutdown:/sbin/swapoff -a
 ::shutdown:/bin/umount -a -r
