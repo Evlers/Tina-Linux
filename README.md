@@ -39,7 +39,8 @@ Lunch menu... pick a combo:
      4. f133_evb1-tina
      5. f133_mq_r-tina
      6. t113_evb1-tina
-     7. t113_mq_r-tina
+     7. t113_mq_dual-tina
+     8. t113_mq_r-tina
 
 
   $ 1 or 5 or 7

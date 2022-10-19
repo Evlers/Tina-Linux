@@ -34,4 +34,4 @@ for i in /etc/init.d/S??* ;do
 done
 
 sleep 3 # Wait for a little while before entering the terminal, Let the DHCP be complete.
-printf "\nWelcome to MangoPi R (T113-s3)\n"
+printf "\nWelcome to MangoPi Dual (T113-s3)\n"
