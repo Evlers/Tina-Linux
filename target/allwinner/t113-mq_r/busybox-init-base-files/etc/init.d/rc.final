@@ -7,6 +7,10 @@ ulimit -c unlimited
 grep debugfs /proc/filesystems && mount -t debugfs none /sys/kernel/debug
 echo /mnt/extsd/core.exe[%e].pid[%p].sig[%s] > /proc/sys/kernel/core_pattern
 
+if [ ! -d "/mnt/extsd/" ]; then
+    /bin/mkdir /mnt/extsd
+fi
+
 if [ -z "$(grep '\<vfat\>' /proc/mounts)" ]; then
     ! /bin/mount -t vfat /dev/mmcblk0 /mnt/extsd 2>/dev/null &&
     /bin/mount -t vfat /dev/mmcblk0p1 /mnt/extsd
