@@ -1138,7 +1138,7 @@ chn_cfg_mode     : Hardware DE channel allocation config. 0:single display with 
 	disp_rotation_used		 = <1>;
 	degree0					 = <0>;
 	fb0_format               = <0>;
-	fb0_buffer_num           = <1>;	
+	fb0_buffer_num           = <2>;	
 	/*fb0_width                = <800>;*/
 	/*fb0_height               = <480>;*/  /*read from lcd*/
 	fb1_format               = <0>;
